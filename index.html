@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ajax</title>
+</head>
+<body>
+</body>
+<script src="ajax.js"></script>
+<script>
+
+ajax({
+    method: 'POST',
+    url: 'json.php',
+    data: {
+        user: 'TED'
+    },
+    response: 'json',
+    success: function (data) {
+        console.log('test');
+        console.log(data);
+        console.log(data.name);
+    },
+    error: function(data) {
+        // do something
+    }
+});
+
+ajax({
+    method: 'GET',
+    url: 'xml.php',
+    data: {
+    },
+    response: 'xml',
+    // withCredentials: true,
+    success: function (data) {
+        console.log(data);
+        console.log(data.getElementsByTagName('a'));
+    },
+    error: function(data) {
+        // do something
+    }
+});
+</script>
+</html>
