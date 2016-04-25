@@ -44,7 +44,7 @@ It is json type object
 |method|string|required|'POST', 'GET', 'DELETE', 'PUT', 'OPTION', 'PATH'| http request method|'GET'|
 |url|string|required|'url'|url you request|'json.php'|
 |data|object|no|{user: 'ted', age: '12'}|the arguments want request|{user: 'ted', age: '12'}|
-|withCredentials|boolean|no|true|cross domain request with cookie, use it|true|
+|withCredentials|boolean|no|true, false|cross domain request with cookie, use it|true|
 |response|string|no|'json', 'xml'|response type is JSON or XML, default no set is JSON|'xml'|
 |success|function|required|function(data) {console.log(data);}|handle response success|function(data) {console.log(data);}|
 |error|function|required|function(data) {console.log(data);}|handle response error|function(data) {console.log(data);}|
