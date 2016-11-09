@@ -28,6 +28,27 @@ ajax({
 });
 
 ajax({
+    method: 'POST',
+    url: 'json.php',
+    data: {
+        user: 'TED'
+    },
+    response: 'json',
+    setRequestHeader: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-Token': 'HAHA'
+    },
+    success: function (data) {
+        console.log('set header');
+        console.log(data);
+        console.log(data.name);
+    },
+    error: function(data) {
+        // do something
+    }
+});
+
+ajax({
     method: 'GET',
     url: 'xml.php',
     data: {

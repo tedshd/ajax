@@ -53,19 +53,18 @@
                 var xdr = new XDomainRequest();
                 xdr.open(method, url);
                 xdr.onprogress = function () {
-                    console.log('progress');
+                    // console.log('progress');
                 };
                 xdr.ontimeout = function () {
-                    console.log('timeout');
+                    // console.log('timeout');
                 };
                 xdr.onerror = function () {
-                    console.log('error');
+                    // console.log('error');
                 };
                 xdr.onload = function() {
-                    console.log('onload');
+                    // console.log('onload');
                     success(JSON.parse(xdr.responseText));
                 };
-                console.log(formUrlEncode(data));
                 setTimeout(function () {
                     xdr.send();
                 }, 0);
@@ -73,9 +72,15 @@
                 return;
             }
         }
+        // handle IE8 IE9 CORS end
 
         xhr = new XMLHttpRequest();
         xhr.open(method, url);
+        if (setting.setRequestHeader) {
+            for (var key in setting.setRequestHeader) {
+                xhr.setRequestHeader(key, setting.setRequestHeader[key]);
+            }
+        }
         if (setting.withCredentials) {
             xhr.withCredentials = true;
         }
