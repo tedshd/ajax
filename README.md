@@ -53,6 +53,18 @@ And some example in `index.html`
 
     * you can use code like `xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');`
 
+* Support Browser
+
+    * Chrome
+
+    * Firefox
+
+    * Safari
+
+    * IE8+
+
+    * Microsoft Edge
+
 ## Arguments
 
 It is json type object
