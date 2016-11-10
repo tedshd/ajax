@@ -2,6 +2,7 @@
  *
  * @authors Ted Shiu (ted@gmail.com)
  * @date    2016-04-11 14:44:03
+ * source https://github.com/tedshd/ajax
  */
 
 (function() {
@@ -45,7 +46,7 @@
         }
 
         // handle IE8 IE9 CORS
-        if (navigator.userAgent.search('MSIE 8') > 0 || navigator.userAgent.search('MSIE 9') > 0) {
+        if (XDomainRequest) {
             var host = location.host,
                 matchUrl = url.replace('https://', '').replace('http://', '');
                 matchUrl = matchUrl.slice(0, matchUrl.indexOf('/'));
