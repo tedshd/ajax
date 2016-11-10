@@ -46,7 +46,7 @@
         }
 
         // handle IE8 IE9 CORS
-        if (XDomainRequest) {
+        if (typeof(XDomainRequest) !== 'undefined') {
             var host = location.host,
                 matchUrl = url.replace('https://', '').replace('http://', '');
                 matchUrl = matchUrl.slice(0, matchUrl.indexOf('/'));
