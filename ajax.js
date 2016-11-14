@@ -7,6 +7,14 @@
 
 (function() {
     function ajax(option) {
+        function isEmpty(obj) {
+            for (var x in obj) {
+                if (obj.hasOwnProperty(x)) {
+                    return false;
+                }
+            }
+           return true;
+        }
         var setting, method, url, data, xhr, success;
         if (option) {
             setting = option;
@@ -28,8 +36,8 @@
         } else {
             return console.error('not set success callback');
         }
-        data = setting.data || '';
-        if (setting.method === 'GET' && data) {
+        data = setting.data || null;
+        if (setting.method === 'GET' && data && !isEmpty(data)) {
             url = url + '?' + formUrlEncode(data);
         }
 
@@ -107,7 +115,7 @@
                     success(response);
                 } else {
                     if (setting.error) {
-                        setting.error(xhr.status);
+                        setting.error(xhr.status, xhr.responseText);
                     } else {
                         return console.error('xhr.status', xhr.status);
                     }
