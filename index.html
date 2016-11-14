@@ -22,7 +22,8 @@ ajax({
         console.log(data);
         console.log(data.name);
     },
-    error: function(data) {
+    error: function(status, data) {
+        // status = http status
         // do something
     }
 });
@@ -43,7 +44,8 @@ ajax({
         console.log(data);
         console.log(data.name);
     },
-    error: function(data) {
+    error: function(status, data) {
+        // status = http status
         // do something
     }
 });
@@ -59,7 +61,8 @@ ajax({
         console.log(data);
         console.log(data.getElementsByTagName('a'));
     },
-    error: function(data) {
+    error: function(status, data) {
+        // status = http status
         // do something
     }
 });

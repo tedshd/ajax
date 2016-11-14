@@ -14,7 +14,8 @@ ajax({
     success: function (data) {
         console.log(data);
     },
-    error: function(data) {
+    error: function(status, data) {
+        // status = http status
         // do something
     }
 });
@@ -29,7 +30,8 @@ var ajaxData = new ajax({
     success: function (data) {
         console.log(data);
     },
-    error: function(data) {
+    error: function(status, data) {
+        // status = http status
         // do something
     }
 });
