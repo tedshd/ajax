@@ -47,7 +47,7 @@
             }
             var urlData = '';
             for (var x in obj) {
-                urlData = urlData + x + '=' + obj[x] + '&';
+                urlData = urlData + x + '=' + encodeURIComponent(obj[x]) + '&';
             }
             urlData = urlData.substr(0, (urlData.length - 1));
             return urlData;
