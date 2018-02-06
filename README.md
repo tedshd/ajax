@@ -1,3 +1,5 @@
+[![GitHub release](https://img.shields.io/github/release/tedshd/ajax.svg)](https://github.com/tedshd/ajax)
+
 [![GitHub tag](https://img.shields.io/github/tag/tedshd/ajax.svg)](https://github.com/tedshd/ajax)
 
 # ajax
