@@ -1,3 +1,5 @@
+[![GitHub tag](https://img.shields.io/github/tag/tedshd/ajax.svg)](https://github.com/tedshd/ajax)
+
 # ajax
 A pure javascript libary handle ajax behaivor
 
