@@ -36,7 +36,7 @@
         } else {
             return console.error('not set success callback');
         }
-        data = setting.data : '';
+        data = setting.data || '';
         if (setting.method === 'GET' && data && !isEmpty(data)) {
             url = url + '?' + formUrlEncode(data);
         }
