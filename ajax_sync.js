@@ -15,7 +15,7 @@
             }
            return true;
         }
-        var setting, method, url, data, xhr, success;
+        var setting, method, url, data, xhr;
         if (option) {
             setting = option;
         } else {
@@ -30,11 +30,6 @@
             url = setting.url;
         } else {
             return console.error('not set url');
-        }
-        if (setting.success) {
-            success = setting.success;
-        } else {
-            return console.error('not set success callback');
         }
         data = setting.data || '';
         if (setting.method === 'GET' && data && !isEmpty(data)) {
@@ -52,36 +47,6 @@
             urlData = urlData.substr(0, (urlData.length - 1));
             return urlData;
         }
-
-        // handle IE8 IE9 CORS
-        if (typeof(XDomainRequest) !== 'undefined') {
-            var host = location.host,
-                matchUrl = url.replace('https://', '').replace('http://', '');
-                matchUrl = matchUrl.slice(0, matchUrl.indexOf('/'));
-            if (url.indexOf('//') === 0 || matchUrl !== host) {
-                var xdr = new XDomainRequest();
-                xdr.open(method, url);
-                xdr.onprogress = function () {
-                    // console.log('progress');
-                };
-                xdr.ontimeout = function () {
-                    // console.log('timeout');
-                };
-                xdr.onerror = function () {
-                    // console.log('error');
-                };
-                xdr.onload = function() {
-                    // console.log('onload');
-                    success(JSON.parse(xdr.responseText));
-                };
-                setTimeout(function () {
-                    xdr.send();
-                }, 0);
-
-                return;
-            }
-        }
-        // handle IE8 IE9 CORS end
 
         return new Promise((resolve, reject) => {
             xhr = new XMLHttpRequest();
