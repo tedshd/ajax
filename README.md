@@ -80,6 +80,7 @@ It is json type object
 |method|string|required|'POST', 'GET', 'DELETE', 'PUT', 'OPTION', 'PATH'| http request method|'GET'|
 |url|string|required|'url'|url you request|'json.php'|
 |data|object|no|{user: 'ted', age: '12'}|the arguments want request|{user: 'ted', age: '12'}|
+|body|string|no|'form', 'json'|request body format, default is form  & form is use x-www-form-urlencoded, json use json|'json'|
 |withCredentials|boolean|no|true, false|cross domain request with cookie, use it|true|
 |setRequestHeader|object|no|{'X-Requested-With': 'XMLHttpRequest'}|ajax with custom header|{'X-Requested-With': 'XMLHttpRequest','X-Token': 'HAHA'}|
 |response|string|no|'json', 'xml'|response type is JSON or XML, default no set is JSON|'xml'|

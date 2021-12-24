@@ -36,6 +36,11 @@
         } else {
             return console.error('not set success callback');
         }
+        if (setting.body) {
+            body = setting.body
+        } else {
+            body = 'form';
+        }
         data = setting.data || '';
         if (setting.method === 'GET' && data && !isEmpty(data)) {
             url = url + '?' + formUrlEncode(data);
@@ -94,9 +99,19 @@
             xhr.withCredentials = true;
         }
         if (setting.method !== 'GET') {
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            switch (body) {
+                case 'form':
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.send(formUrlEncode(data));
+                case 'json':
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.send(JSON.stringify(data));
+                default:
+                    return console.error('not support body');
+            }
+        } else {
+            xhr.send(formUrlEncode(data));
         }
-        xhr.send(formUrlEncode(data));
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
