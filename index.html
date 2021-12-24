@@ -8,6 +8,7 @@
 <body>
 </body>
 <script src="ajax.js"></script>
+<script src="ajax_sync.js"></script>
 <script>
 
 ajax({
@@ -66,5 +67,75 @@ ajax({
         // do something
     }
 });
+
+(async () => {
+    let res = await ajaxSync({
+        method: 'GET',
+        url: 'https://tedshd.io/api/demo/?q=error',
+        data: {
+        },
+        response: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function(status, data) {
+            // status = http status
+            // do something
+        }
+    }).then((success) => {
+        // console.log('success', success);
+        return success;
+    },
+    (error) => {
+        // console.log('error', error);
+        return error;
+    });
+    let res2 = await ajaxSync({
+        method: 'GET',
+        url: 'https://tedshd.io/api/demo/?q=apple',
+        data: {
+        },
+        response: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function(status, data) {
+            // status = http status
+            // do something
+        }
+    }).then((success) => {
+        // console.log('success', success);
+        return success;
+    },
+    (error) => {
+        // console.log('error', error);
+        return error;
+    });
+    let res3 = await ajaxSync({
+        method: 'GET',
+        url: 'https://tedshd.io/api/demo/?q=ball',
+        data: {
+        },
+        response: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function(status, data) {
+            // status = http status
+            // do something
+        }
+    }).then((success) => {
+        // console.log('success', success);
+        return success;
+    },
+    (error) => {
+        // console.log('error', error);
+        return error;
+    });
+    console.log('res', res);
+    console.log('res2', res2);
+    console.log('res3', res3);
+})();
+
 </script>
 </html>
